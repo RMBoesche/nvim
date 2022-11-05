@@ -1,7 +1,8 @@
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  use 'lunarvim/colorschemes'
+
+  --Color Themes
   use 'EdenEast/nightfox.nvim'
   use 'folke/tokyonight.nvim'
   use 'Mofiqul/dracula.nvim'
