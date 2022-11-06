@@ -2,7 +2,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  --Color Themes
+  -- Color Themes
   use 'EdenEast/nightfox.nvim'
   use 'folke/tokyonight.nvim'
   use 'Mofiqul/dracula.nvim'
@@ -10,7 +10,15 @@ return require('packer').startup(function(use)
   use 'overcache/NeoSolarized'
   use 'ellisonleao/gruvbox.nvim'
 
-  --Nvim-tree
+  -- Git Signs
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
+
+  -- Nvim Tree
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
@@ -19,7 +27,7 @@ return require('packer').startup(function(use)
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
-  --Telescope
+  -- Telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     -- or                            , branch = '0.1.x',
@@ -27,11 +35,12 @@ return require('packer').startup(function(use)
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  --Treesitter
+  -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate'
+    run = ':TSUpdate'
   }   
 
-  
+  -- Feline 
+  use 'feline-nvim/feline.nvim'
 end)
