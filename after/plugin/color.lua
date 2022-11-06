@@ -1,5 +1,6 @@
 vim.g.tokyonight_transparent_sidebar = true
 vim.g.tokyonight_transparent = true
+vim.g.tokyonight_enable_italic = 1
 
 vim.opt.background = "dark"
 

@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
   use 'shaunsingh/nord.nvim'
   use 'overcache/NeoSolarized'
   use 'ellisonleao/gruvbox.nvim'
+  use 'tanvirtin/monokai.nvim'
 
   -- Git Signs
   use {
@@ -41,6 +42,10 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   }   
 
-  -- Feline 
-  use 'feline-nvim/feline.nvim'
+  --Lua Line
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
 end)
