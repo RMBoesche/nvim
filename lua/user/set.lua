@@ -13,12 +13,10 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
-vim.opt.hlsearch = false
+--vim.opt.hlsearch = false
 vim.opt.incsearch = true
 --vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 
-vim.opt.clipboard = unnamedplus
-vim.opt.mouse = a
 
