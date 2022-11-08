@@ -12,7 +12,6 @@ return require('packer').startup(function(use)
   -- use 'ellisonleao/gruvbox.nvim'
   -- use 'tanvirtin/monokai.nvim'
 
-
   -- Nvim Tree
   use {
     'nvim-tree/nvim-tree.lua',
