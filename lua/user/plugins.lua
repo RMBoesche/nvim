@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
   use 'folke/tokyonight.nvim'
   use 'Mofiqul/dracula.nvim'
   use 'shaunsingh/nord.nvim'
-  use "lunarvim/darkplus.nvim"
+  -- use "lunarvim/darkplus.nvim"
   -- use 'overcache/NeoSolarized'
   -- use 'ellisonleao/gruvbox.nvim'
   -- use 'tanvirtin/monokai.nvim'
@@ -64,5 +64,11 @@ return require('packer').startup(function(use)
   -- Snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to usek
+
+  -- Autopairs
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
 
 end)
