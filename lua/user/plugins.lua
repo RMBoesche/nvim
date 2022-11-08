@@ -7,17 +7,10 @@ return require('packer').startup(function(use)
   use 'folke/tokyonight.nvim'
   use 'Mofiqul/dracula.nvim'
   use 'shaunsingh/nord.nvim'
-  use 'overcache/NeoSolarized'
-  use 'ellisonleao/gruvbox.nvim'
-  use 'tanvirtin/monokai.nvim'
+  -- use 'overcache/NeoSolarized'
+  -- use 'ellisonleao/gruvbox.nvim'
+  -- use 'tanvirtin/monokai.nvim'
 
-  -- Git Signs
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end
-  }
 
   -- Nvim Tree
   use {
@@ -42,10 +35,22 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   }   
 
-  --Lua Line
+  -- Lua Line
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
+  -- Git 
+  use { 'lewis6991/gitsigns.nvim' }
+  use { 'tpope/vim-fugitive' }
+
+  -- Comments
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
   }
 
 end)
