@@ -17,6 +17,7 @@ nnoremap("<leader>n", ":NvimTreeToggle<CR>")
 -- Navigate buffers
 nnoremap("<S-l>", ":bnext<CR>")
 nnoremap("<S-h>", ":bprevious<CR>")
+nnoremap("<Leader>q", ":Bdelete<CR>")
 
 -- Move text up and down
 nnoremap("<A-j>", "<ESC>:m .+1<CR>==gi")
