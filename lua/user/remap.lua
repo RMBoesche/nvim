@@ -19,6 +19,9 @@ nnoremap("<S-l>", ":bnext<CR>")
 nnoremap("<S-h>", ":bprevious<CR>")
 nnoremap("<Leader>q", ":Bdelete<CR>")
 
+-- Close windows
+nnoremap("<Leader>c", ":close<CR>")
+
 -- Move text up and down
 nnoremap("<A-j>", "<ESC>:m .+1<CR>==gi")
 nnoremap("<A-k>", "<ESC>:m .-2<CR>==gi")
