@@ -3,21 +3,21 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Color Themes
-  use 'EdenEast/nightfox.nvim'
   use 'folke/tokyonight.nvim'
   use 'Mofiqul/dracula.nvim'
   use 'shaunsingh/nord.nvim'
+  use 'EdenEast/nightfox.nvim'
   -- use "lunarvim/darkplus.nvim"
   -- use 'overcache/NeoSolarized'
   -- use 'ellisonleao/gruvbox.nvim'
   -- use 'tanvirtin/monokai.nvim'
 
+  -- Nvim icons
+  use 'kyazdani42/nvim-web-devicons'
+
   -- Nvim Tree
   use {
     'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
@@ -38,7 +38,6 @@ return require('packer').startup(function(use)
   -- Lua Line
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
   -- Git 
@@ -71,7 +70,7 @@ return require('packer').startup(function(use)
   }
 
   -- Bufferline
-  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+  use {'akinsho/bufferline.nvim', tag = "v3.*"}
   use 'moll/vim-bbye'
 
 end)
