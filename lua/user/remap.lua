@@ -3,6 +3,9 @@ local  inoremap = require("user.keymap").inoremap
 local  vnoremap = require("user.keymap").vnoremap
 local  xnoremap = require("user.keymap").xnoremap
 
+-- Leader
+vim.g.mapleader = " "
+
 -- Normal --
 -- Better window navigation
 nnoremap("<C-h>", "<C-w>h")
@@ -22,9 +25,33 @@ nnoremap("<Leader>q", ":Bdelete<CR>")
 -- Close windows
 nnoremap("<Leader>c", ":close<CR>")
 
+-- Delete do not go to register
+nnoremap("x", '"_x')
+
+-- Increment and Decrement
+nnoremap("<Leader>+","<C-a>")
+nnoremap("<Leader>-","<C-x>")
+
 -- Move text up and down
 nnoremap("<A-j>", "<ESC>:m .+1<CR>==gi")
 nnoremap("<A-k>", "<ESC>:m .-2<CR>==gi")
+
+-- No highlight
+nnoremap("<leader>nh", ":nohl<CR>")
+
+-- Window management
+nnoremap("<leader>sv", "<C-w>v") -- split vertically
+nnoremap("<leader>sh", "<C-w>s") -- split horizontally
+nnoremap("<leader>se", "<C-w>=") -- make split equal width
+nnoremap("<leader>sx", ":close<CR>") -- close window
+nnoremap("<leader>sm", ":MaximizerToggle<CR>")
+
+-- Tab management
+nnoremap("<leader>to", ":tabnew<CR>") -- open new tab
+nnoremap("<leader>tx", ":tabclose<CR>") -- close tab
+nnoremap("<leader>tn", ":tabn<CR>") -- go to next tab
+nnoremap("<leader>tp", ":tabp<CR>") -- go to previous tab
+
 
 -- Insert -- 
 -- jk and kj is faster

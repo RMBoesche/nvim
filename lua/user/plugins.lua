@@ -1,13 +1,41 @@
-return require('packer').startup(function(use)
+-- auto install packer if not installed
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data') .. "/site/pack/packer/start/packer.nvim"
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({ 'git', "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    vim.cmd([[packadd packer.nvim]])
+    return true
+  end
+  return false
+end
+local packer_bootstrap = ensure_packer() -- true if packer was just installed
+
+-- autocommand that reloads neovim and installs/updates/removes plugins
+-- when file is saved
+vim.cmd([[ 
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]])
+
+-- import packer safely
+local status, packer = pcall(require, 'packer')
+if not status then
+  return
+end
+
+return packer.startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
   -- Color Themes
   use 'folke/tokyonight.nvim'
-  use 'Mofiqul/dracula.nvim'
   use 'shaunsingh/nord.nvim'
-  use 'EdenEast/nightfox.nvim'
-  -- use "lunarvim/darkplus.nvim"
+  -- use 'Mofiqul/dracula.nvim'
+  -- use 'EdenEast/nightfox.nvim'
+  -- use 'lunarvim/darkplus.nvim'
   -- use 'overcache/NeoSolarized'
   -- use 'ellisonleao/gruvbox.nvim'
   -- use 'tanvirtin/monokai.nvim'
@@ -53,24 +81,32 @@ return require('packer').startup(function(use)
   }
 
   -- CMP plugins
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use 'hrsh7th/nvim-cmp' -- The completion plugin
+  use 'hrsh7th/cmp-buffer' -- buffer completions
+  use 'hrsh7th/cmp-path' -- path completions
+  use 'hrsh7th/cmp-cmdline' -- cmdline completions
 
   -- Snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to usek
+  use 'L3MON4D3/LuaSnip' --snippet engine
+  use 'saadparwaiz1/cmp_luasnip' -- snippet completions
+  use 'rafamadriz/friendly-snippets' -- a bunch of snippets to usek
 
-  -- Autopairs
+  -- Autopairs and Vim-surround
   use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
+    'windwp/nvim-autopairs',
+    config = function() require('nvim-autopairs').setup {} end
   }
+  use 'tpope/vim-surround'
 
   -- Bufferline
-  use {'akinsho/bufferline.nvim', tag = "v3.*"}
+  use {'akinsho/bufferline.nvim', tag = 'v3.*'}
   use 'moll/vim-bbye'
 
+  -- Tmux and window navigation
+  use('christoomey/vim-tmux-navigator')
+  use('szw/vim-maximizer')
+
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)
