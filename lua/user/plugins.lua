@@ -61,7 +61,7 @@ return packer.startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
-  }   
+  }
 
   -- Lua Line
   use {
