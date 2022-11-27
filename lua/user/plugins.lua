@@ -85,11 +85,20 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-buffer' -- buffer completions
   use 'hrsh7th/cmp-path' -- path completions
   use 'hrsh7th/cmp-cmdline' -- cmdline completions
+  use 'hrsh7th/cmp-nvim-lsp'
 
   -- Snippets
   use 'L3MON4D3/LuaSnip' --snippet engine
   use 'saadparwaiz1/cmp_luasnip' -- snippet completions
   use 'rafamadriz/friendly-snippets' -- a bunch of snippets to usek
+
+  -- Managing & installing lsp servers
+  use {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+  }
+  use({'glepnir/lspsaga.nvim', branch = 'main'})
 
   -- Autopairs and Vim-surround
   use {
