@@ -8,4 +8,4 @@ vim.g.nord_bold = false
 
 -- vim.opt.background = "dark"
 
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme onedark")

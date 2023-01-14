@@ -33,10 +33,10 @@ return packer.startup(function(use)
   -- Color Themes
   use 'folke/tokyonight.nvim'
   use 'shaunsingh/nord.nvim'
+  use 'navarasu/onedark.nvim'
   -- use 'Mofiqul/dracula.nvim'
   -- use 'EdenEast/nightfox.nvim'
-  -- use 'lunarvim/darkplus.nvim'
-  -- use 'overcache/NeoSolarized'
+  -- use 'lunarvim/darkplus.nvim' use 'overcache/NeoSolarized'
   -- use 'ellisonleao/gruvbox.nvim'
   -- use 'tanvirtin/monokai.nvim'
 
@@ -73,12 +73,7 @@ return packer.startup(function(use)
   use { 'tpope/vim-fugitive' }
 
   -- Comments
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end
-  }
+  use 'numToStr/Comment.nvim'
 
   -- CMP plugins
   use 'hrsh7th/nvim-cmp' -- The completion plugin
@@ -101,10 +96,7 @@ return packer.startup(function(use)
   use({'glepnir/lspsaga.nvim', branch = 'main'})
 
   -- Autopairs and Vim-surround
-  use {
-    'windwp/nvim-autopairs',
-    config = function() require('nvim-autopairs').setup {} end
-  }
+  use 'windwp/nvim-autopairs'
   use 'tpope/vim-surround'
 
   -- Bufferline
