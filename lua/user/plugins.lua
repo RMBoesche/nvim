@@ -62,6 +62,11 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  
+  use { -- Additional text objects via treesitter
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+  }
 
   -- Lua Line
   use {
@@ -74,6 +79,12 @@ return packer.startup(function(use)
 
   -- Comments
   use 'numToStr/Comment.nvim'
+
+  -- Add indentation guides even on blank lines
+  use 'lukas-reineke/indent-blankline.nvim'
+  
+  -- Detect tabstop and shiftwidth automatically
+  use 'tpope/vim-sleuth'
 
   -- CMP plugins
   use 'hrsh7th/nvim-cmp' -- The completion plugin
@@ -88,12 +99,20 @@ return packer.startup(function(use)
   use 'rafamadriz/friendly-snippets' -- a bunch of snippets to usek
 
   -- Managing & installing lsp servers
-  use {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
+  use { -- LSP Configuration & Plugins
+    'neovim/nvim-lspconfig',
+    requires = {
+      -- Automatically install LSPs to stdpath for neovim
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+
+      -- Useful status updates for LSP
+      'j-hui/fidget.nvim',
+
+      -- Additional lua configuration, makes nvim stuff amazing
+      'folke/neodev.nvim',
+    },
   }
-  use({'glepnir/lspsaga.nvim', branch = 'main'})
 
   -- Autopairs and Vim-surround
   use 'windwp/nvim-autopairs'
