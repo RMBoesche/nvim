@@ -14,8 +14,9 @@ nnoremap("<C-k>", "<C-w>k")
 nnoremap("<C-l>", "<C-w>l")
 
 -- Nvim Tree 
-nnoremap("<leader>p", ":NvimTreeFocus<CR>")
-nnoremap("<leader>n", ":NvimTreeToggle<CR>")
+-- nnoremap("<leader>p", ":NvimTreeFocus<CR>")
+nnoremap("<leader>p", ":NvimTreeToggle<CR>")
+
 
 -- Navigate buffers
 nnoremap("<S-l>", ":bnext<CR>")
