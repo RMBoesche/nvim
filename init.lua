@@ -1,7 +1,7 @@
 require("user.set")
 require("user.remap")
 require("user.plugins")
-require("plugins-config.autopairs") 
+require("plugins-config.autopairs")
 require("plugins-config.bufferline")
 require("plugins-config.cmp")
 require("plugins-config.comment")

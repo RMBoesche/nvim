@@ -15,8 +15,8 @@ local packer_bootstrap = ensure_packer() -- true if packer was just installed
 -- when file is saved
 vim.cmd([[ 
   augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  autocmd!
+  autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -45,10 +45,7 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
 
   -- Nvim Tree
-  use {
-    'nvim-tree/nvim-tree.lua',
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  }
+  use 'nvim-tree/nvim-tree.lua'
 
   -- Telescope
   use {
@@ -63,27 +60,25 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
-  
+
   use { -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
   }
 
   -- Lua Line
-  use {
-    'nvim-lualine/lualine.nvim',
-  }
+  use 'nvim-lualine/lualine.nvim'
 
   -- Git 
-  use { 'lewis6991/gitsigns.nvim' }
-  use { 'tpope/vim-fugitive' }
+  use 'lewis6991/gitsigns.nvim'
+  use 'tpope/vim-fugitive'
 
   -- Comments
   use 'numToStr/Comment.nvim'
 
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
-  
+
   -- Detect tabstop and shiftwidth automatically
   use 'tpope/vim-sleuth'
 
@@ -124,8 +119,8 @@ return packer.startup(function(use)
   use 'moll/vim-bbye'
 
   -- Tmux and window navigation
-  use('christoomey/vim-tmux-navigator')
-  use('szw/vim-maximizer')
+  use 'christoomey/vim-tmux-navigator'
+  use 'szw/vim-maximizer'
 
   if packer_bootstrap then
     require('packer').sync()
