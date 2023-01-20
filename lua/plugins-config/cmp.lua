@@ -2,9 +2,9 @@
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
---require('luasnip/loaders/from_vscode').lazy_load()
+require('luasnip/loaders/from_vscode').lazy_load()
 
---vim.opt.completeopt = "menu, menuone,noselect"
+vim.opt.completeopt = "menu,menuone,noselect"
 
 cmp.setup {
   snippet = {
