@@ -6,6 +6,4 @@ vim.g.nord_italic = false
 vim.g.nord_uniform_diff_background = true
 vim.g.nord_bold = false
 
-vim.opt.background = "dark"
-
-vim.cmd("colorscheme onedark")
+vim.cmd("colorscheme catppuccin-frappe")

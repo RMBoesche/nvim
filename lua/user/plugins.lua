@@ -34,6 +34,7 @@ return packer.startup(function(use)
   use 'folke/tokyonight.nvim'
   use 'shaunsingh/nord.nvim'
   use 'navarasu/onedark.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
   -- use 'Mofiqul/dracula.nvim'
   -- use 'EdenEast/nightfox.nvim'
   -- use 'lunarvim/darkplus.nvim' use 'overcache/NeoSolarized'
