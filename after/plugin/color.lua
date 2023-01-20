@@ -7,3 +7,4 @@ vim.g.nord_uniform_diff_background = true
 vim.g.nord_bold = false
 
 vim.cmd("colorscheme catppuccin-frappe")
+vim.cmd("let g:mkdp_theme='dark'")

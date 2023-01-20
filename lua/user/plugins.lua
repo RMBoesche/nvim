@@ -35,11 +35,6 @@ return packer.startup(function(use)
   use 'shaunsingh/nord.nvim'
   use 'navarasu/onedark.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
-  -- use 'Mofiqul/dracula.nvim'
-  -- use 'EdenEast/nightfox.nvim'
-  -- use 'lunarvim/darkplus.nvim' use 'overcache/NeoSolarized'
-  -- use 'ellisonleao/gruvbox.nvim'
-  -- use 'tanvirtin/monokai.nvim'
 
   -- Nvim icons
   use 'kyazdani42/nvim-web-devicons'
@@ -75,9 +70,6 @@ return packer.startup(function(use)
 
   -- Comments
   use 'numToStr/Comment.nvim'
-
-  -- Add indentation guides even on blank lines
-  use 'lukas-reineke/indent-blankline.nvim'
 
   -- Detect tabstop and shiftwidth automatically
   use 'tpope/vim-sleuth'
@@ -124,6 +116,13 @@ return packer.startup(function(use)
   -- Tmux and window navigation
   use 'christoomey/vim-tmux-navigator'
   use 'szw/vim-maximizer'
+
+  -- Markdown Preview
+  -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
 
   if packer_bootstrap then
     require('packer').sync()
