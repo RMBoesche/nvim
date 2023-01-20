@@ -1,77 +1,75 @@
-local  nnoremap = require("user.keymap").nnoremap
-local  inoremap = require("user.keymap").inoremap
-local  vnoremap = require("user.keymap").vnoremap
-local  xnoremap = require("user.keymap").xnoremap
-
 -- Leader
 vim.g.mapleader = " "
 
 -- Normal --
 -- Better window navigation
-nnoremap("<C-h>", "<C-w>h")
-nnoremap("<C-j>", "<C-w>j")
-nnoremap("<C-k>", "<C-w>k")
-nnoremap("<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+
+-- Better half window scroll
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Nvim Tree 
--- nnoremap("<leader>p", ":NvimTreeFocus<CR>")
-nnoremap("<leader>p", ":NvimTreeToggle<CR>")
+-- vim.keymap.set("n", "<leader>p", ":NvimTreeFocus<CR>")
+vim.keymap.set("n", "<leader>p", ":NvimTreeToggle<CR>")
 
 
 -- Navigate buffers
-nnoremap("<S-l>", ":bnext<CR>")
-nnoremap("<S-h>", ":bprevious<CR>")
-nnoremap("<Leader>q", ":Bdelete<CR>")
+vim.keymap.set("n", "<S-l>", ":bnext<CR>")
+vim.keymap.set("n", "<S-h>", ":bprevious<CR>")
+vim.keymap.set("n", "<Leader>q", ":Bdelete<CR>")
 
 -- Close windows
-nnoremap("<Leader>c", ":close<CR>")
+vim.keymap.set("n", "<Leader>c", ":close<CR>")
 
 -- Delete do not go to register
-nnoremap("x", '"_x')
+vim.keymap.set("n", "x", '"_x')
 
 -- Increment and Decrement
-nnoremap("<Leader>+","<C-a>")
-nnoremap("<Leader>-","<C-x>")
+vim.keymap.set("n", "<Leader>+","<C-a>")
+vim.keymap.set("n", "<Leader>-","<C-x>")
 
 -- Move text up and down
-nnoremap("<A-j>", "<ESC>:m .+1<CR>==gi")
-nnoremap("<A-k>", "<ESC>:m .-2<CR>==gi")
+vim.keymap.set("n", "<A-j>", "<ESC>:m .+1<CR>==gi")
+vim.keymap.set("n", "<A-k>", "<ESC>:m .-2<CR>==gi")
 
 -- No highlight
-nnoremap("<leader>nh", ":nohl<CR>")
+vim.keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- Window management
-nnoremap("<leader>sv", "<C-w>v") -- split vertically
-nnoremap("<leader>sh", "<C-w>s") -- split horizontally
-nnoremap("<leader>se", "<C-w>=") -- make split equal width
-nnoremap("<leader>sx", ":close<CR>") -- close window
-nnoremap("<leader>sm", ":MaximizerToggle<CR>")
+vim.keymap.set("n", "<leader>sv", "<C-w>v") -- split vertically
+vim.keymap.set("n", "<leader>sh", "<C-w>s") -- split horizontally
+vim.keymap.set("n", "<leader>se", "<C-w>=") -- make split equal width
+vim.keymap.set("n", "<leader>sx", ":close<CR>") -- close window
+vim.keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
 -- Tab management
-nnoremap("<leader>to", ":tabnew<CR>") -- open new tab
-nnoremap("<leader>tx", ":tabclose<CR>") -- close tab
-nnoremap("<leader>tn", ":tabn<CR>") -- go to next tab
-nnoremap("<leader>tp", ":tabp<CR>") -- go to previous tab
-
+vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
+vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close tab
+vim.keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
+vim.keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
 
 -- Insert -- 
 -- jk and kj is faster
-inoremap("jk", "<ESC>")
-inoremap("kj", "<ESC>")
+vim.keymap.set("i", "jk", "<ESC>")
+vim.keymap.set("i", "kj", "<ESC>")
 
 -- Visual --
 -- Stay in indent mode
-vnoremap("<", "<gv")
-vnoremap(">", ">gv")
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
 
 -- Move text up and down
-vnoremap("<A-j>", ":m .+1<CR>==")
-vnoremap("<A-k>", ":m .-2<CR>==")
-vnoremap("p", '"_dP')
+vim.keymap.set("v", "<A-j>", ":m .+1<CR>==")
+vim.keymap.set("v", "<A-k>", ":m .-2<CR>==")
+vim.keymap.set("v", "p", '"_dP')
 
 -- Visual Block -- 
 -- Move text up and down
-xnoremap("J", ":move '>+1<CR>gv-gv")
-xnoremap("K", ":move '<-2<CR>gv-gv")
-xnoremap("<A-j>", ":move '>+1<CR>gv-gv")
-xnoremap("<A-k>", ":move '<-2<CR>gv-gv")
+vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
+vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
+vim.keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv")
+vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv")
