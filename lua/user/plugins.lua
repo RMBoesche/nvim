@@ -107,9 +107,11 @@ return packer.startup(function(use)
 
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim',
+
+      -- VScode like icons on cmp
+      'onsails/lspkind.nvim'
     },
   }
-  use 'onsails/lspkind.nvim'
 
   -- Autopairs and Vim-surround
   use 'windwp/nvim-autopairs'
