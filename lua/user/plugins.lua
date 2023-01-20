@@ -109,6 +109,7 @@ return packer.startup(function(use)
       'folke/neodev.nvim',
     },
   }
+  use 'onsails/lspkind.nvim'
 
   -- Autopairs and Vim-surround
   use 'windwp/nvim-autopairs'
