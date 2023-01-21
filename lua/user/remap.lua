@@ -16,7 +16,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- vim.keymap.set("n", "<leader>p", ":NvimTreeFocus<CR>")
 vim.keymap.set("n", "<leader>p", ":NvimTreeToggle<CR>")
 
-
 -- Navigate buffers
 vim.keymap.set("n", "<S-l>", ":bnext<CR>")
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>")
