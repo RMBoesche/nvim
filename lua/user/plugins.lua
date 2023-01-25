@@ -34,6 +34,7 @@ return packer.startup(function(use)
   use 'folke/tokyonight.nvim'
   use 'shaunsingh/nord.nvim'
   use 'navarasu/onedark.nvim'
+  use 'Mofiqul/dracula.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
 
   -- Nvim icons
@@ -101,7 +102,10 @@ return packer.startup(function(use)
       'folke/neodev.nvim',
 
       -- VScode like icons on cmp
-      'onsails/lspkind.nvim'
+      'onsails/lspkind.nvim',
+
+      -- Rust Plugin
+      'simrat39/rust-tools.nvim'            
     },
   }
 
@@ -118,11 +122,13 @@ return packer.startup(function(use)
   use 'szw/vim-maximizer'
 
   -- Markdown Preview
-  -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
+
+  -- Debugging
+  use 'mfussenegger/nvim-dap'
 
   if packer_bootstrap then
     require('packer').sync()
