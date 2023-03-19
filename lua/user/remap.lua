@@ -51,11 +51,6 @@ vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
 
--- Insert -- 
--- jk and kj is faster
-vim.keymap.set("i", "jk", "<ESC>")
-vim.keymap.set("i", "kj", "<ESC>")
-
 -- Visual --
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv")

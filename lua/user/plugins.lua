@@ -105,7 +105,7 @@ return packer.startup(function(use)
       'onsails/lspkind.nvim',
 
       -- Rust Plugin
-      'simrat39/rust-tools.nvim'            
+      'simrat39/rust-tools.nvim'
     },
   }
 
