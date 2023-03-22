@@ -54,17 +54,12 @@ local servers = {
   pyright = {},
   rust_analyzer = {},
   -- tsserver = {},
-
-  sumneko_lua = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
 }
+
 
 -- Setup neovim lua configuration
 require('neodev').setup()
+
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -76,8 +71,20 @@ require('mason').setup()
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
 
+-- -- Fix Undefined global 'vim'
+-- mason_lspconfig.configure('lua-language-server', {
+--     settings = {
+--         Lua = {
+--             diagnostics = {
+--                 globals = { 'vim' }
+--             }
+--         }
+--     }
+-- })
+
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
+  'lua-language-server',
 }
 
 mason_lspconfig.setup_handlers {

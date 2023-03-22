@@ -1,15 +1,17 @@
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {
+require('telescope').setup({
   defaults = {
     mappings = {
       i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
-    },
-  },
-}
+        -- Custom mappings
+        ['<C-j>'] = require('telescope.actions').move_selection_next,
+        ['<C-k>'] = require('telescope.actions').move_selection_previous,
+        ['<C-q>'] = require('telescope.actions').smart_send_to_qflist + require('telescope.actions').close,
+      }
+    }
+  }
+})
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')

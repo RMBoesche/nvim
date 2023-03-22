@@ -3,7 +3,6 @@ local opt = vim.opt -- for conciseness
 opt.guicursor = ""
 opt.mouse = "a"
 opt.termguicolors = true
-opt.clipboard = "unnamedplus"
 
 opt.nu = true
 opt.relativenumber = true
@@ -35,3 +34,4 @@ opt.splitbelow = true
 opt.splitright = true
 
 opt.backspace = "indent,eol,start"
+opt.updatetime = 50
