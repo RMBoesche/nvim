@@ -86,9 +86,15 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
 
   -- Snippets
-  use 'L3MON4D3/LuaSnip' --snippet engine
+  use({
+    "L3MON4D3/LuaSnip", --snippet engine
+    -- follow latest release.
+    tag = "v<CurrentMajor>.*",
+    -- install jsregexp (optional!:).
+    run = "make install_jsregexp"
+  })
   use 'saadparwaiz1/cmp_luasnip' -- snippet completions
-  use 'rafamadriz/friendly-snippets' -- a bunch of snippets to usek
+  use 'rafamadriz/friendly-snippets' -- a bunch of snippets to use
 
   -- Managing & installing lsp servers
   use { -- LSP Configuration & Plugins
@@ -132,6 +138,13 @@ return packer.startup(function(use)
 
   -- Debugging
   use 'mfussenegger/nvim-dap'
+
+  --Github Copilot
+  use 'zbirenbaum/copilot.lua'
+
+  --Vimtex
+  use 'lervag/vimtex'
+
 
   if packer_bootstrap then
     require('packer').sync()

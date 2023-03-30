@@ -3,8 +3,6 @@ local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 local lspkind = require 'lspkind'
 
-require('luasnip/loaders/from_vscode').lazy_load()
-
 vim.opt.completeopt = "menu,menuone,noselect"
 
 cmp.setup {
@@ -19,7 +17,7 @@ cmp.setup {
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
+      select = false,
     },
     ['<C-j>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -41,10 +39,10 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'buffer'},
-    { name = 'path'}
+    -- Other Sources
+    { name = "nvim_lsp", group_index = 2 },
+    { name = "path", group_index = 2 },
+    { name = "luasnip", group_index = 2 },
   },
   formatting = {
     format = lspkind.cmp_format({
@@ -53,4 +51,3 @@ cmp.setup {
     }),
   },
 }
-
