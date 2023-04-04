@@ -6,6 +6,15 @@ vim.g.mapleader = " "
 vim.keymap.set("i", "<C-c>", "<ESC>")
 
 -- Normal --
+-- Save file
+vim.keymap.set("n", "<C-s>", ":w<CR>")
+
+-- Quit file
+vim.keymap.set("n", "<C-q>", ":q<CR>")
+
+-- Quit all files
+vim.keymap.set("n", "<C-Q>", ":qa<CR>")
+
 -- Append with J better.
 vim.keymap.set("n", "J", "mzJ`z")
 
