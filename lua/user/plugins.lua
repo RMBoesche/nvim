@@ -145,6 +145,14 @@ return packer.startup(function(use)
   --Vimtex
   use 'lervag/vimtex'
 
+  -- Startup.nvim
+  use {
+    "startup-nvim/startup.nvim",
+    requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+    config = function()
+      require"startup".setup()
+    end
+  }
 
   if packer_bootstrap then
     require('packer').sync()
