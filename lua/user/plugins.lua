@@ -145,7 +145,7 @@ return packer.startup(function(use)
   --Vimtex
   use 'lervag/vimtex'
 
-  -- Startup.nvim
+  -- Startup Screen
   use {
     "startup-nvim/startup.nvim",
     requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
@@ -153,6 +153,12 @@ return packer.startup(function(use)
       require"startup".setup()
     end
   }
+
+  -- Leap
+  use 'ggandor/leap.nvim'
+
+  -- Repeat maps
+  use 'tpope/vim-repeat'
 
   if packer_bootstrap then
     require('packer').sync()
