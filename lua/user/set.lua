@@ -24,7 +24,7 @@ opt.hlsearch = false
 opt.incsearch = true
 
 opt.pumheight = 10
-opt.cmdheight = 2
+opt.cmdheight = 1
 
 opt.swapfile = false
 
