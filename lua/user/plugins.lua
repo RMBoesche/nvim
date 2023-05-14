@@ -160,6 +160,9 @@ return packer.startup(function(use)
   -- Repeat maps
   use 'tpope/vim-repeat'
 
+  -- Transparent
+  use 'xiyaowong/transparent.nvim'
+
   if packer_bootstrap then
     require('packer').sync()
   end

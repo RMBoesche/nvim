@@ -272,6 +272,11 @@ _G.packer_plugins = {
     path = "/home/rmboesche/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["transparent.nvim"] = {
+    loaded = true,
+    path = "/home/rmboesche/.local/share/nvim/site/pack/packer/start/transparent.nvim",
+    url = "https://github.com/xiyaowong/transparent.nvim"
+  },
   ["vim-bbye"] = {
     loaded = true,
     path = "/home/rmboesche/.local/share/nvim/site/pack/packer/start/vim-bbye",
