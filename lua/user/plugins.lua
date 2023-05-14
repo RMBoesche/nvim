@@ -89,7 +89,7 @@ return packer.startup(function(use)
   use({
     "L3MON4D3/LuaSnip", --snippet engine
     -- follow latest release.
-    tag = "v<CurrentMajor>.*",
+    -- tag = "v<CurrentMajor>.*",
     -- install jsregexp (optional!:).
     run = "make install_jsregexp"
   })
@@ -140,7 +140,7 @@ return packer.startup(function(use)
   use 'mfussenegger/nvim-dap'
 
   --Github Copilot
-  use 'zbirenbaum/copilot.lua'
+  use 'github/copilot.vim'
 
   --Vimtex
   use 'lervag/vimtex'
