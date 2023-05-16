@@ -88,9 +88,6 @@ return packer.startup(function(use)
   -- Snippets
   use({
     "L3MON4D3/LuaSnip", --snippet engine
-    -- follow latest release.
-    -- tag = "v<CurrentMajor>.*",
-    -- install jsregexp (optional!:).
     run = "make install_jsregexp"
   })
   use 'saadparwaiz1/cmp_luasnip' -- snippet completions
