@@ -10,10 +10,10 @@ vim.keymap.set("i", "<C-c>", "<ESC>")
 vim.keymap.set("n", "<C-s>", ":w<CR>")
 
 -- Quit file
-vim.keymap.set("n", "<C-q>", ":q<CR>")
+vim.keymap.set("n", "<leader>q", ":q<CR>")
 
 -- Quit all files
-vim.keymap.set("n", "<C-Q>", ":qa<CR>")
+vim.keymap.set("n", "<leader>Q", ":qa<CR>")
 
 -- Append with J better.
 vim.keymap.set("n", "J", "mzJ`z")
@@ -38,7 +38,7 @@ vim.keymap.set("n", "<leader>p", ":NvimTreeToggle<CR>")
 -- Navigate buffers
 vim.keymap.set("n", "<S-l>", ":bnext<CR>")
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>")
-vim.keymap.set("n", "<Leader>q", ":Bdelete<CR>")
+vim.keymap.set("n", "<S-q>", ":Bdelete<CR>")
 
 -- Close windows
 vim.keymap.set("n", "<Leader>c", ":close<CR>")
