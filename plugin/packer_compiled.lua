@@ -311,11 +311,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rmboesche/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
-  },
-  vimtex = {
-    loaded = true,
-    path = "/home/rmboesche/.local/share/nvim/site/pack/packer/start/vimtex",
-    url = "https://github.com/lervag/vimtex"
   }
 }
 

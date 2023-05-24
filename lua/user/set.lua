@@ -1,6 +1,5 @@
 local opt = vim.opt -- for conciseness
 
-opt.guicursor = ""
 opt.mouse = "a"
 opt.termguicolors = true
 
@@ -29,7 +28,6 @@ opt.cmdheight = 1
 opt.swapfile = false
 
 opt.showmode = false
-opt.cursorline = true
 opt.splitbelow = true
 opt.splitright = true
 
