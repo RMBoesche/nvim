@@ -136,11 +136,8 @@ return packer.startup(function(use)
   -- Debugging
   use 'mfussenegger/nvim-dap'
 
-  --Github Copilot
+  -- Github Copilot
   use 'github/copilot.vim'
-
-  --Vimtex
-  use 'lervag/vimtex'
 
   -- Startup Screen
   use {
