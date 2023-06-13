@@ -115,6 +115,9 @@ return packer.startup(function(use)
     },
   }
 
+  -- Null LS
+  use 'jose-elias-alvarez/null-ls.nvim'
+
   -- Autopairs and Vim-surround
   use 'windwp/nvim-autopairs'
   use 'tpope/vim-surround'
@@ -135,6 +138,7 @@ return packer.startup(function(use)
 
   -- Debugging
   use 'mfussenegger/nvim-dap'
+  use 'mfussenegger/nvim-dap-python'
 
   -- Github Copilot
   use 'github/copilot.vim'
