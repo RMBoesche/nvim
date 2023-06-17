@@ -1,4 +1,4 @@
--- Leader
+-- Leaderremap
 vim.g.mapleader = " "
 
 -- Insert --
