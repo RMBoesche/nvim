@@ -97,7 +97,7 @@ return {
   -- Markdown Preview
   {
     "iamcco/markdown-preview.nvim",
-    build = function() vim.fn["mkdp#util#install"]() end,
+    config = function() vim.fn["mkdp#util#install"]() end,
   },
 
   -- Debugging
@@ -106,6 +106,9 @@ return {
 
   -- Github Copilot
   'github/copilot.vim',
+
+  --Vimtex
+  'lervag/vimtex',
 
   -- Leap
   'ggandor/leap.nvim',
