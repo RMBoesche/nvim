@@ -1,35 +1,33 @@
-local opt = vim.opt -- for conciseness
+vim.opt.mouse = "a"
+vim.opt.termguicolors = true
 
-opt.mouse = "a"
-opt.termguicolors = true
+vim.opt.nu = true
+vim.opt.relativenumber = true
 
-opt.nu = true
-opt.relativenumber = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.scrolloff = 8
 
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
-opt.expandtab = true
-opt.scrolloff = 8
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
-opt.autoindent = true
-opt.smartindent = true
-opt.ignorecase = true
-opt.smartcase = true
+vim.opt.wrap = false
 
-opt.wrap = false
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
-opt.hlsearch = false
-opt.incsearch = true
+vim.opt.pumheight = 10
+vim.opt.cmdheight = 1
 
-opt.pumheight = 10
-opt.cmdheight = 1
+vim.opt.swapfile = false
 
-opt.swapfile = false
+vim.opt.showmode = false
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
-opt.showmode = false
-opt.splitbelow = true
-opt.splitright = true
-
-opt.backspace = "indent,eol,start"
-opt.updatetime = 50
+vim.opt.backspace = "indent,eol,start"
+vim.opt.updatetime = 50

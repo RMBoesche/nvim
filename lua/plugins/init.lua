@@ -87,9 +87,6 @@ return {
   'windwp/nvim-autopairs',
   'tpope/vim-surround',
 
-  -- Bufferline
-  'moll/vim-bbye',
-
   -- Tmux and window navigation
   'christoomey/vim-tmux-navigator',
   'szw/vim-maximizer',

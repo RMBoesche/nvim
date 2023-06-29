@@ -1,6 +1,3 @@
--- Leaderremap
-vim.g.mapleader = " "
-
 -- Insert --
 -- C-c behave exactly like ESC
 vim.keymap.set("i", "<C-c>", "<ESC>")
@@ -29,8 +26,8 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Search term in the middle of the screen
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "nzzzv")
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
 
 -- Nvim Tree 
 vim.keymap.set("n", "<leader>p", ":NvimTreeToggle<CR>")
@@ -78,7 +75,7 @@ vim.keymap.set("v", ">", ">gv")
 -- Move text up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "p", '"_dP')
+vim.keymap.set("v", "<leader>p", '"_dP')
 
 -- Visual Block -- 
 -- Move text up and down
