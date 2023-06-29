@@ -1,6 +1,3 @@
--- Leaderremap
-vim.g.mapleader = " "
-
 -- Insert --
 -- C-c behave exactly like ESC
 vim.keymap.set("i", "<C-c>", "<ESC>")
@@ -29,8 +26,8 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Search term in the middle of the screen
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "nzzzv")
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
 
 -- Nvim Tree 
 vim.keymap.set("n", "<leader>p", ":NvimTreeToggle<CR>")
@@ -45,14 +42,11 @@ vim.keymap.set("n", "<Leader>c", ":close<CR>")
 
 -- Delete do not go to register
 vim.keymap.set("n", "x", '"_x')
+vim.keymap.set("n", "d", '"_d')
 
 -- Increment and Decrement
 vim.keymap.set("n", "<Leader>+","<C-a>")
 vim.keymap.set("n", "<Leader>-","<C-x>")
-
--- Move text up and down
-vim.keymap.set("n", "<A-j>", "<ESC>:m .+1<CR>==gi")
-vim.keymap.set("n", "<A-k>", "<ESC>:m .-2<CR>==gi")
 
 -- No highlight
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>")
@@ -110,4 +104,3 @@ vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
 vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
 vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
 vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
-
