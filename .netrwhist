@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/rodrigb/.tmux/plugins'
+let g:netrw_dirhist_8='/home/rodrigb/.tmux'
+let g:netrw_dirhist_7='/home/rodrigb/.bash'
+let g:netrw_dirhist_6='/home/rodrigb/.config/nvim'
+let g:netrw_dirhist_5='/home/rodrigb/.vim/vimrcs'
+let g:netrw_dirhist_4='/home/rodrigb/.vim'
+let g:netrw_dirhist_3='/'
+let g:netrw_dirhist_2='/home'
+let g:netrw_dirhist_1='/home/rodrigb'
