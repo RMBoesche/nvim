@@ -15,6 +15,9 @@ vim.keymap.set("n", "<leader>Q", ":qa<CR>")
 -- Append with J better.
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- Toggle Relative Line Numbers
+vim.keymap.set("n", "<leader>nr", "<cmd>set relativenumber!<CR>")
+
 -- Better window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
@@ -36,9 +39,6 @@ vim.keymap.set("n", "<leader>p", ":NvimTreeToggle<CR>")
 vim.keymap.set("n", "<S-l>", ":bnext<CR>")
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>")
 vim.keymap.set("n", "<S-q>", ":Bdelete<CR>")
-
--- Close windows
-vim.keymap.set("n", "<Leader>c", ":close<CR>")
 
 -- Delete do not go to register
 vim.keymap.set("n", "x", '"_x')
