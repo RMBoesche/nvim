@@ -112,4 +112,10 @@ return {
 
   -- Repeat maps
   'tpope/vim-repeat',
+
+  -- P4 syntax
+  'rightson/vim-p4-syntax',
+
+  -- Jupyter Notebook
+  'luk400/vim-jukit'
 }
