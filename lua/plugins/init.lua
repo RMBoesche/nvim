@@ -1,6 +1,7 @@
 return {
   -- Color Themes
   { 'catppuccin/nvim', as = 'catppuccin' },
+  'xiyaowong/transparent.nvim',
 
   -- Nvim icons
   'kyazdani42/nvim-web-devicons',
