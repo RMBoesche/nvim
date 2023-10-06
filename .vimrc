@@ -92,12 +92,6 @@ nnoremap <leader>f :find
 "Toggle relative line numbers
 nnoremap <leader>n :set relativenumber!<CR>
 
-"Quittign
-nnoremap <leader>q :q<CR>
-
-"Explorer
-nnoremap <leader>p :Ex<CR>
-
 
 "Plugins
 call plug#begin()
@@ -123,24 +117,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 
-".lib syntax
-Plug 'tarikgraba/vim-liberty'
-
-".ssp syntax
-Plug 'ftorres16/spice.vim'
-
-"Transparent mode
-Plug 'tribela/vim-transparent'
-
-"Fuzzy Finder
-Plug 'junegunn/fzf'
-
 call plug#end()
 
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline_theme = 'transparent'
 colorscheme catppuccin_mocha
-
-au BufNewFile,BufRead *.ngc    set syntax=perl
-au BufNewFile,BufRead *.ssp    set syntax=spice
-
