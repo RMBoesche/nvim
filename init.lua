@@ -37,3 +37,4 @@ require("plugins-config.telescope")
 require("plugins-config.transparent")
 require("plugins-config.treesitter")
 require("plugins-config.vimtex")
+test
