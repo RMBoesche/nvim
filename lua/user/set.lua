@@ -32,3 +32,10 @@ vim.opt.splitright = true
 
 vim.opt.backspace = "indent,eol,start"
 vim.opt.updatetime = 50
+
+vim.cmd [[
+    au BufNewFile,BufRead *.ngc    set syntax=perl
+    au BufNewFile,BufRead *.ssp    set syntax=spice
+    au BufNewFile,BufRead *.ngc    set filetype=perl
+    au BufNewFile,BufRead *.ssp    set filetype=spice
+]]
