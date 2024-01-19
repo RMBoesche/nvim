@@ -11,7 +11,6 @@ return {
   -- Telescope
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.4',
-    -- or                            , branch = '0.1.x',
     dependencies = { {'nvim-lua/plenary.nvim'} }
   },
   {'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
@@ -80,9 +79,6 @@ return {
     },
   },
 
-  -- Null LS
-  'jose-elias-alvarez/null-ls.nvim',
-
   -- Autopairs and Vim-surround
   'windwp/nvim-autopairs',
   'tpope/vim-surround',
@@ -97,12 +93,8 @@ return {
     config = function() vim.fn["mkdp#util#install"]() end,
   },
 
-  -- Debugging
-  'mfussenegger/nvim-dap',
-  'mfussenegger/nvim-dap-python',
-
   -- Github Copilot
-  'github/copilot.vim',
+  -- 'github/copilot.vim',
 
   --Vimtex
   'lervag/vimtex',
@@ -112,10 +104,4 @@ return {
 
   -- Repeat maps
   'tpope/vim-repeat',
-
-  -- P4 syntax
-  'rightson/vim-p4-syntax',
-
-  -- Jupyter Notebook
-  -- 'luk400/vim-jukit'
 }

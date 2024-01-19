@@ -52,6 +52,7 @@ local servers = {
   clangd = {},
   pyright = {},
   rust_analyzer = {},
+  lua_ls = {},
 }
 
 
