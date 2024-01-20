@@ -60,6 +60,7 @@ return {
 					"rust_analyzer",
 					"lua_ls",
 					"perlnavigator",
+					"stylua",
 				},
 			})
 
