@@ -1,6 +1,6 @@
 return {
   'ThePrimeagen/harpoon',
-  lazy = true,
+  keys = "<leader>o",
   config = function ()
     vim.keymap.set("n", "<leader>o", require("harpoon.mark").add_file)
     vim.keymap.set("n", "<leader>v", require("harpoon.ui").toggle_quick_menu)

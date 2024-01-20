@@ -76,13 +76,5 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    lazy = false,
-    dependencies = {
-      -- Additional lua configuration, makes nvim stuff amazing
-      'folke/neodev.nvim',
-
-      -- VScode like icons on cmp
-      'onsails/lspkind.nvim',
-    },
   }
 }

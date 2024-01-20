@@ -1,7 +1,8 @@
 return {
   "L3MON4D3/LuaSnip", --snippet engine
   build = "make install_jsregexp",
-  lazy = true,
+  dependencies = "rafamadriz/friendly-snippets",
+  event = 'InsertEnter',
   config = function ()
     require("luasnip").config.set_config({ -- Setting LuaSnip config
 

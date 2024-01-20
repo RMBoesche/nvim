@@ -1,14 +1,13 @@
 return {
   'hrsh7th/nvim-cmp', -- The completion plugin
+  event = "InsertEnter",
   dependencies = {
     'hrsh7th/cmp-buffer', -- buffer completions
     'hrsh7th/cmp-path', -- path completions
     'hrsh7th/cmp-cmdline', -- cmdline completions
     'hrsh7th/cmp-nvim-lsp', -- nvim lsp completions
-    'saadparwaiz1/cmp_luasnip', -- snippet completions
-    'rafamadriz/friendly-snippets', -- a bunch of snippets to use
+    'onsails/lspkind.nvim', -- VScode like icons on cmp
   },
-
   config = function()
     local cmp = require('cmp')
     local luasnip = require('luasnip')
@@ -56,6 +55,7 @@ return {
       },
       formatting = {
         format = lspkind.cmp_format({
+          mode = 'symbol_text',
           maxwidth = 50,
           ellipsis_char = "...",
         }),
