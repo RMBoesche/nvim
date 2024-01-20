@@ -32,13 +32,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")
 
--- Nvim Tree 
-vim.keymap.set("n", "<leader>p", ":NvimTreeToggle<CR>")
-
 -- Navigate buffers
 vim.keymap.set("n", "<S-l>", ":bnext<CR>")
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>")
-vim.keymap.set("n", "<S-q>", ":Bdelete<CR>")
 
 -- Delete do not go to register
 vim.keymap.set("n", "x", '"_x')
@@ -61,6 +57,7 @@ vim.keymap.set("n", "<leader>se", "<C-w>=") -- make split equal width
 vim.keymap.set("n", "<leader>sx", ":close<CR>") -- close window
 vim.keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
+
 -- Tab management
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close tab
@@ -77,6 +74,9 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<leader>p", '"_dP')
 
+-- Nvim Tree 
+vim.keymap.set("n", "<leader>p", ":NvimTreeToggle<CR>")
+
 -- Visual Block -- 
 -- Move text up and down
 vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
@@ -85,15 +85,11 @@ vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
 -- Gretest remap ever
 vim.keymap.set("x", "<leader>p", '"_dP')
 
--- The Primagean --
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
-
--- This is going to get me cancelled
-vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "Q", "<nop>")
@@ -107,4 +103,10 @@ vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
 vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
 vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
 vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>r', vim.diagnostic.setloclist)
 

@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 vim.opt.mouse = "a"
 vim.opt.termguicolors = true
 
@@ -31,3 +33,5 @@ vim.opt.splitright = true
 
 vim.opt.backspace = "indent,eol,start"
 vim.opt.updatetime = 50
+
+vim.opt.completeopt = "menu,menuone,noselect"
