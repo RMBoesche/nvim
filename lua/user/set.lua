@@ -35,3 +35,6 @@ vim.opt.backspace = "indent,eol,start"
 vim.opt.updatetime = 50
 
 vim.opt.completeopt = "menu,menuone,noselect"
+
+vim.api.nvim_command("autocmd BufRead,BufNewFile *.ngc set filetype=perl")
+vim.api.nvim_command("autocmd BufRead,BufNewFile *.ssp set filetype=spice")

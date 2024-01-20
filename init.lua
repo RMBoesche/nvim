@@ -13,4 +13,4 @@ vim.opt.rtp:prepend(lazypath)
 
 require("user.set")
 require("user.remap")
-require('lazy').setup('plugins')
+require("lazy").setup("plugins")

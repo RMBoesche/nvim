@@ -1,9 +1,9 @@
 return {
-    "iamcco/markdown-preview.nvim",
-    ft = 'markdown',
-    config = function ()
-        vim.fn["mkdp#util#install"]()
-        vim.cmd[[
+	"iamcco/markdown-preview.nvim",
+	ft = "markdown",
+	config = function()
+		vim.fn["mkdp#util#install"]()
+		vim.cmd([[
         " set to 1, nvim will open the preview window after entering the markdown buffer
         " default: 0
         let g:mkdp_auto_start = 0
@@ -102,6 +102,6 @@ return {
         " set default theme (dark or light)
         " By default the theme is define according to the preferences of the system
         let g:mkdp_theme = 'dark'
-        ]]
-    end
+        ]])
+	end,
 }

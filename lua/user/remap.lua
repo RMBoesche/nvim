@@ -40,8 +40,8 @@ vim.keymap.set("n", "<S-h>", ":bprevious<CR>")
 vim.keymap.set("n", "x", '"_x')
 
 -- Increment and Decrement
-vim.keymap.set("n", "<Leader>+","<C-a>")
-vim.keymap.set("n", "<Leader>-","<C-x>")
+vim.keymap.set("n", "<Leader>+", "<C-a>")
+vim.keymap.set("n", "<Leader>-", "<C-x>")
 
 -- Move text up and down
 vim.keymap.set("n", "<A-j>", "<ESC>:m .+1<CR>==gi")
@@ -56,7 +56,6 @@ vim.keymap.set("n", "<leader>sh", "<C-w>s") -- split horizontally
 vim.keymap.set("n", "<leader>se", "<C-w>=") -- make split equal width
 vim.keymap.set("n", "<leader>sx", ":close<CR>") -- close window
 vim.keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
-
 
 -- Tab management
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
@@ -74,10 +73,10 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<leader>p", '"_dP')
 
--- Nvim Tree 
+-- Nvim Tree
 vim.keymap.set("n", "<leader>p", ":NvimTreeToggle<CR>")
 
--- Visual Block -- 
+-- Visual Block --
 -- Move text up and down
 vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
 vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
@@ -86,27 +85,30 @@ vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
 vim.keymap.set("x", "<leader>p", '"_dP')
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- In Lua
-vim.keymap.set('n', '<Leader>L', '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/luasnippets/"})<CR>')
+vim.keymap.set(
+	"n",
+	"<Leader>L",
+	'<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/luasnippets/"})<CR>'
+)
 
--- Tmux Navigator 
+-- Tmux Navigator
 vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
 vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
 vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
 vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>r', vim.diagnostic.setloclist)
-
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>r", vim.diagnostic.setloclist)

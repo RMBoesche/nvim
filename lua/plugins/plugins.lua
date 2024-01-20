@@ -1,19 +1,19 @@
 return {
-  -- Git 
-  'tpope/vim-fugitive',
+	-- Git
+	"tpope/vim-fugitive",
 
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+	-- Detect tabstop and shiftwidth automatically
+	"tpope/vim-sleuth",
 
-  -- Autopairs
-  'tpope/vim-surround',
+	-- Autopairs
+	"tpope/vim-surround",
 
-  -- Tmux 
-  'christoomey/vim-tmux-navigator',
+	-- Tmux
+	"christoomey/vim-tmux-navigator",
 
-  -- Window navigation
-  'szw/vim-maximizer',
+	-- Window navigation
+	"szw/vim-maximizer",
 
-  -- Repeat maps
-  'tpope/vim-repeat',
+	-- Repeat maps
+	"tpope/vim-repeat",
 }

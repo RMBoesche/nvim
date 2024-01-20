@@ -1,13 +1,15 @@
 return {
-  'ThePrimeagen/harpoon',
-  keys = "<leader>o",
-  config = function ()
-    vim.keymap.set("n", "<leader>o", require("harpoon.mark").add_file)
-    vim.keymap.set("n", "<leader>v", require("harpoon.ui").toggle_quick_menu)
+	"ThePrimeagen/harpoon",
+	keys = "<leader>o",
+	config = function()
+		local ui = require("harpoon.ui")
 
-    vim.keymap.set("n", "<leader>h", function() require("harpoon.ui").nav_file(1) end)
-    vim.keymap.set("n", "<leader>j", function() require("harpoon.ui").nav_file(2) end)
-    vim.keymap.set("n", "<leader>k", function() require("harpoon.ui").nav_file(3) end)
-    vim.keymap.set("n", "<leader>l", function() require("harpoon.ui").nav_file(4) end)
-  end
+		vim.keymap.set("n", "<leader>o", require("harpoon.mark").add_file)
+		vim.keymap.set("n", "<leader>v", ui.toggle_quick_menu)
+
+		vim.keymap.set("n", "<leader>h", function() ui.nav_file(1) end)
+		vim.keymap.set("n", "<leader>j", function() ui.nav_file(2) end)
+		vim.keymap.set("n", "<leader>k", function() ui.nav_file(3) end)
+		vim.keymap.set("n", "<leader>l", function() ui.nav_file(4) end)
+	end,
 }
