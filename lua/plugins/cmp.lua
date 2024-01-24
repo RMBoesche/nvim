@@ -15,6 +15,7 @@ return {
 			"hrsh7th/cmp-path",  -- path completions
 			"hrsh7th/cmp-cmdline", -- cmdline completions
 			"hrsh7th/cmp-nvim-lsp", -- nvim lsp completions
+			"hrsh7th/cmp-nvim-lua", -- nvim lsp completions
 			"onsails/lspkind.nvim", -- VScode like icons on cmp
 			"L3MON4D3/LuaSnip",  -- snippet engine
 		},
@@ -74,9 +75,11 @@ return {
 
 				sources = {
 					{ name = "nvim_lsp", group_index = 1 },
+					{ name = "nvim_lua", group_index = 1 },
 					{ name = "path",     group_index = 1 },
 					{ name = "luasnip",  group_index = 1 },
-					{ name = "buffer",   group_index = 3 },
+					{ name = "buffer",   group_index = 10, keyword_length = 5 },
+					{ name = "cmdline",  group_index = 5, keyword_length = 5 },
 				},
 				formatting = {
 					format = lspkind.cmp_format({
