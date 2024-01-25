@@ -79,8 +79,14 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<leader>p", '"_dP')
 
+-- Netrw
+vim.keymap.set("n", "<leader>p", "<cmd>Explore<CR>")
+
 -- Nvim Tree
-vim.keymap.set("n", "<leader>p", "<cmd>NvimTreeToggle<CR>")
+-- vim.keymap.set("n", "<leader>p", "<cmd>NvimTreeToggle<CR>")
+
+-- Neo Tree
+-- vim.keymap.set("n", "<leader>p", "<cmd>Neotree toggle<CR>")
 
 -- Visual Block --
 -- Move text up and down
