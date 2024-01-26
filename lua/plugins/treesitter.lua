@@ -7,7 +7,7 @@ return {
 		},
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "perl" },
+				ensure_installed = { "markdown", "markdown_inline", "c", "cpp", "go", "lua", "python", "rust", "perl" },
 				highlight = { enable = true },
 				indent = { enable = true },
 			})

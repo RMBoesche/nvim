@@ -23,7 +23,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.pumheight = 10
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 
 vim.opt.swapfile = false
 
@@ -35,6 +35,8 @@ vim.opt.backspace = "indent,eol,start"
 vim.opt.updatetime = 50
 
 vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.conceallevel = 2
 
 vim.api.nvim_command("autocmd BufRead,BufNewFile *.ngc set filetype=perl")
 vim.api.nvim_command("autocmd BufRead,BufNewFile *.ssp set filetype=spice")
+
