@@ -2,7 +2,19 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
-		dependencies = "nvim-lua/plenary.nvim",
+		dependencies = { "nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-fzf-native.nvim" },
+		cmd = "Telescope",
+		keys = {
+			"<leader>?",
+			"<leader>ff",
+			"<leader>fh",
+			"<leader>fw",
+			"<leader>fg",
+			"<leader>fd",
+			"<leader>fk",
+			"<leader><space>",
+			"<leader>/" },
 		config = function()
 			local actions = require("telescope.actions")
 			local builtin = require("telescope.builtin")
@@ -46,5 +58,9 @@ return {
 			end, { desc = "[/] Fuzzily sind in current buffer]" })
 		end,
 	},
-	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		lazy = true,
+		build = "make"
+	},
 }

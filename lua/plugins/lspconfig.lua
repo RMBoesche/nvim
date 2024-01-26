@@ -1,15 +1,20 @@
 return {
 	{
-		"neovim/nvim-lspconfig",
-	},
-	{
 		"williamboman/mason.nvim",
+		lazy = true,
 		config = function()
 			require("mason").setup()
 		end,
 	},
 	{
+		"neovim/nvim-lspconfig",
+		dependencies = "williamboman/mason.nvim",
+		lazy = true,
+	},
+	{
 		"williamboman/mason-lspconfig.nvim",
+		dependencies = "neovim/nvim-lspconfig",
+		event = "VeryLazy",
 		config = function()
 			local on_attach = function(_, bufnr)
 				local nmap = function(keys, func, desc)
