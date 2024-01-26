@@ -16,6 +16,13 @@ return {
 							["<C-q>"] = actions.smart_send_to_qflist + actions.close,
 						},
 					},
+					layout_strategy = "vertical",
+					layout_config = {
+						vertical = {
+							prompt_position = "top",
+						},
+					},
+					sorting_strategy = "ascending",
 				},
 			})
 			-- Enable telescope fzf native, if installed
