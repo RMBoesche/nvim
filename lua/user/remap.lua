@@ -80,10 +80,13 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<leader>p", '"_dP')
 
 -- Netrw
--- vim.keymap.set("n", "<leader>p", "<cmd>Explore<CR>")
+-- vim.keymap.set("n", "<leader>e", "<cmd>Explore<CR>")
 
 -- Nvim Tree
-vim.keymap.set("n", "<leader>p", "<cmd>NvimTreeToggle<CR>")
+-- vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
+
+-- Oil
+vim.keymap.set("n", "<leader>e", "<cmd>Oil --float<CR>")
 
 -- Visual Block --
 -- Move text up and down
@@ -118,5 +121,5 @@ vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>of", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>h", vim.diagnostic.setloclist)
