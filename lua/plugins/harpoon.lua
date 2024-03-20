@@ -1,6 +1,6 @@
 return {
 	"ThePrimeagen/harpoon",
-	keys = "<leader>o",
+	keys = {"<leader>o", "<leader>v", "<leader>h", "<leader>j", "<leader>k", "<leader>l"},
 	config = function()
 		local ui = require("harpoon.ui")
 
