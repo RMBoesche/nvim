@@ -79,12 +79,6 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<leader>p", '"_dP')
 
--- Netrw
--- vim.keymap.set("n", "<leader>e", "<cmd>Explore<CR>")
-
--- Nvim Tree
--- vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
-
 -- Oil
 vim.keymap.set("n", "<leader>e", "<cmd>Oil --float<CR>")
 

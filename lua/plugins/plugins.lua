@@ -1,10 +1,4 @@
 return {
-	-- Git
-	{
-		"tpope/vim-fugitive",
-		event = "VeryLazy",
-	},
-
 	-- Detect tabstop and shiftwidth automatically
 	{
 		"tpope/vim-sleuth",
@@ -17,9 +11,9 @@ return {
 		event = "VeryLazy",
 	},
 
-	-- Tmux
+	-- Repeat maps
 	{
-		"christoomey/vim-tmux-navigator",
+		"tpope/vim-repeat",
 		event = "VeryLazy",
 	},
 
@@ -29,9 +23,9 @@ return {
 		event = "VeryLazy",
 	},
 
-	-- Repeat maps
+	-- Tmux
 	{
-		"tpope/vim-repeat",
+		"christoomey/vim-tmux-navigator",
 		event = "VeryLazy",
 	},
 }
