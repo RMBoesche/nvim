@@ -40,3 +40,16 @@ vim.opt.conceallevel = 2
 vim.api.nvim_command("autocmd BufRead,BufNewFile *.ngc set filetype=perl")
 vim.api.nvim_command("autocmd BufRead,BufNewFile *.ssp set filetype=spice")
 
+vim.g.clipboard = {
+  name = 'tmux',
+  copy = {
+    ['+'] = { 'tmux', 'load-buffer', '-w', '-' },  -- Copy to tmux buffer
+    ['*'] = { 'tmux', 'load-buffer', '-w', '-' },  -- Copy to tmux buffer
+  },
+  paste = {
+    ['+'] = { 'tmux', 'save-buffer', '-' },  -- Paste from tmux buffer
+    ['*'] = { 'tmux', 'save-buffer', '-' },  -- Paste from tmux buffer
+  },
+  cache_enabled = 1,  -- Enable clipboard caching
+}
+
