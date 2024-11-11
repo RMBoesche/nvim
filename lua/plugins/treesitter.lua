@@ -8,7 +8,7 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "markdown", "markdown_inline", "c", "cpp", "go", "lua", "python", "rust", "perl" , "vimdoc"},
+				ensure_installed = { "markdown", "markdown_inline", "c", "cpp", "go", "lua", "python", "rust", "perl" , "vimdoc", "bash", "regex"},
 				highlight = { enable = true },
 				indent = { enable = true },
 			})
