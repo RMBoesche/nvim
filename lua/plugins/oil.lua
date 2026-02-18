@@ -1,7 +1,8 @@
 return {
   'stevearc/oil.nvim',
   -- Optional dependencies
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+  lazy = false,
   config = function()
     require("oil").setup {
       keymaps = {
@@ -12,7 +13,7 @@ return {
         ["<M-v>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
       },
       view_options = {
-        show_hidden = true,
+        show_hidden = false,
       },
     }
   end,
