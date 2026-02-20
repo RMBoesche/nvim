@@ -125,3 +125,6 @@ vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>")
 -- Leap
 vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
 vim.keymap.set('n',             'S', '<Plug>(leap-from-window)')
+
+-- Claude Code 
+vim.keymap.set('n', '<leader>cc', '<cmd>ClaudeCode<CR>', { desc = 'Toggle Claude Code' })
