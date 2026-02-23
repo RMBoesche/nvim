@@ -1,10 +1,19 @@
 return {
   'stevearc/oil.nvim',
   -- Optional dependencies
-  dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+  dependencies = { { "echasnovski/mini.icons", opts = {} } },
   lazy = false,
   config = function()
     require("oil").setup {
+      float = {
+        padding = 2,
+        max_width = 0,
+        max_height = 0,
+        border = "rounded",
+        win_options = {
+          winblend = 0,
+        },
+      },
       keymaps = {
         ["<C-h>"] = false,
         ["<C-s>"] = false,
