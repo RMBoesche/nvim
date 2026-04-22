@@ -93,7 +93,6 @@ return {
 					{ name = "nvim_lua", group_index = 1 },
 					{ name = "path",     group_index = 1 },
 					{ name = "luasnip",  group_index = 1 },
-					{ name = "cmdline",  group_index = 5,  keyword_length = 3 },
 					{ name = "buffer",   group_index = 10, keyword_length = 4 },
 				},
 				formatting = {

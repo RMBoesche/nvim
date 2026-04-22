@@ -117,7 +117,7 @@ vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>of", vim.diagnostic.open_float)
-vim.keymap.set("n", "<leader>h", vim.diagnostic.setloclist)
+vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist)
 
 -- LazyGit 
 vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>")

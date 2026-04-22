@@ -37,8 +37,8 @@ vim.opt.updatetime = 50
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.conceallevel = 2
 
-vim.api.nvim_command("autocmd BufRead,BufNewFile *.ngc set filetype=perl")
-vim.api.nvim_command("autocmd BufRead,BufNewFile *.ssp set filetype=spice")
+vim.cmd("autocmd BufRead,BufNewFile *.ngc set filetype=perl")
+vim.cmd("autocmd BufRead,BufNewFile *.ssp set filetype=spice")
 
 vim.g.clipboard = {
   name = 'tmux',

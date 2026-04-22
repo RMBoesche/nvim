@@ -1,72 +1,77 @@
 return {
-	{
-		"williamboman/mason.nvim",
-		lazy = true,
-		config = function()
-			require("mason").setup()
-		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = "williamboman/mason.nvim",
-		lazy = true,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		dependencies = "neovim/nvim-lspconfig",
-		event = "VeryLazy",
-		config = function()
-			local on_attach = function(_, bufnr)
-				local nmap = function(keys, func, desc)
-					if desc then
-						desc = "LSP: " .. desc
-					end
-					vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-				end
+  {
+    "mason-org/mason.nvim",
+    opts = {},
+    lazy = true,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = "mason-org/mason.nvim",
+    lazy = true,
+  },
+  {
+    "mason-org/mason-lspconfig.nvim",
+    dependencies = {
+      "mason-org/mason.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    event = "VeryLazy",
+    config = function()
+      local lspconfig = require("lspconfig")
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+      local on_attach = function(_, bufnr)
+        -- LSP Keymaps
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "LSP: [g]o to [d]efinition" })
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "LSP: [g]o to [D]eclaration" })
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "LSP: [g]o to [r]eferences" })
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "LSP: [g]o to [i]mplementation" })
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "LSP: [K]eyword info" })
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "LSP: [r]e[n]ame symbol" })
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "LSP: [c]ode [a]ctions" })
+      end
 
-				nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-				nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-
-				nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-				nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-				nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-				nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
-				nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-				nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
-
-				nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-				-- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-
-				-- Lesser used LSP functionality
-				nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-				nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
-				nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
-				nmap("<leader>wl", function()
-					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-				end, "[W]orkspace [L]ist Folders")
-			end
-
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"clangd",
-					"pyright",
-					"rust_analyzer",
-					"lua_ls",
-					"perlnavigator",
-				},
-			})
-
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-			require("mason-lspconfig").setup_handlers({
-				function(server_name)
-					require("lspconfig")[server_name].setup({
-						capabilities = capabilities,
-						on_attach = on_attach,
-					})
-				end,
-			})
-		end,
-	},
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          -- LSPs
+          "lua_ls",
+          "pyright",
+          "r_language_server",
+          "perlnavigator",
+          "clangd",
+          "rust_analyzer",
+        },
+        handlers = {
+          function(server_name)
+            lspconfig[server_name].setup({
+              on_attach = on_attach,
+              capabilities = capabilities,
+            })
+          end,
+          ["lua_ls"] = function()
+            lspconfig.lua_ls.setup({
+              on_attach = on_attach,
+              capabilities = capabilities,
+              settings = {
+                Lua = {
+                  runtime = {
+                    version = "LuaJIT",
+                  },
+                  diagnostics = {
+                    globals = { "vim" },
+                  },
+                  workspace = {
+                    library = vim.api.nvim_get_runtime_file("", true),
+                  },
+                  telemetry = {
+                    enable = false,
+                  },
+                },
+              },
+            })
+          end,
+        },
+      })
+    end,
+  },
 }

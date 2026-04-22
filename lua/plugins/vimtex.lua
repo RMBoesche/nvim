@@ -15,7 +15,7 @@ return {
 			show_numbers = 1,
 			split_pos = "leftabove",
 			split_width = 30,
-			tocdeth = 3,
+			tocdepth = 3,
 			indent_levels = 1,
 			todo_sorted = 1,
 		}
