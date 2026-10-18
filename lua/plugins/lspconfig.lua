@@ -91,6 +91,13 @@ return {
       -- Flat root_markers for the same 0.11.3 health check crash as lua_ls.
       vim.lsp.config("slang_server", { root_markers = { ".slang", ".git" } })
 
+      -- Rust: rustup's rust-analyzer matches the installed toolchain (Mason's needs a newer one);
+      -- run clippy instead of cargo check for inline lints
+      vim.lsp.config("rust_analyzer", {
+        settings = { ["rust-analyzer"] = { check = { command = "clippy" } } },
+      })
+      vim.lsp.enable("rust_analyzer")
+
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
@@ -101,8 +108,8 @@ return {
           "tclsp",
           "slang_server",
           "verible",
+          "bashls",
           "clangd",
-          "rust_analyzer",
         },
         -- pyright is still installed by Mason; basedpyright replaces it
         automatic_enable = { exclude = { "pyright" } },
