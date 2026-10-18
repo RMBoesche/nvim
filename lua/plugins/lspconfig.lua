@@ -4,12 +4,20 @@ return {
     opts = {},
   },
   {
-    -- Formatters and linters used by conform.lua and lint.lua
+    -- Single install list (servers by lspconfig name, plus formatters/linters).
+    -- Headless install for fresh machines: nvim --headless "+MasonToolsInstallSync" +qa
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    dependencies = { "mason-org/mason.nvim" },
+    dependencies = { "mason-org/mason.nvim", "mason-org/mason-lspconfig.nvim" },
+    cmd = { "MasonToolsInstall", "MasonToolsInstallSync", "MasonToolsUpdate" },
     event = "VeryLazy",
     opts = {
-      ensure_installed = { "stylua", "ruff", "shfmt", "selene", "shellcheck", "prettierd", "clang-format" },
+      ensure_installed = {
+        -- language servers
+        "lua_ls", "basedpyright", "ruff", "r_language_server", "perlnavigator", "tclsp",
+        "slang_server", "verible", "bashls", "texlab", "marksman", "clangd",
+        -- formatters / linters
+        "stylua", "shfmt", "selene", "shellcheck", "prettierd", "clang-format",
+      },
     },
   },
   {
@@ -99,20 +107,7 @@ return {
       vim.lsp.enable("rust_analyzer")
 
       require("mason-lspconfig").setup({
-        ensure_installed = {
-          "lua_ls",
-          "basedpyright",
-          "ruff",
-          "r_language_server",
-          "perlnavigator",
-          "tclsp",
-          "slang_server",
-          "verible",
-          "bashls",
-          "texlab",
-          "marksman",
-          "clangd",
-        },
+        -- servers are installed by mason-tool-installer above
         -- pyright is still installed by Mason; basedpyright replaces it
         automatic_enable = { exclude = { "pyright" } },
       })
