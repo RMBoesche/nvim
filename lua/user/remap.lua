@@ -18,12 +18,6 @@ vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position"
 -- Toggle Relative Line Numbers
 vim.keymap.set("n", "<leader>nr", "<cmd>set relativenumber!<CR>", { desc = "Toggle relative line numbers" })
 
--- Better window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Navigate to left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Navigate to window below" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Navigate to window above" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Navigate to right window" })
-
 -- Better half window scroll
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half page and center" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half page and center" })
@@ -39,16 +33,12 @@ vim.keymap.set("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
 -- Delete do not go to register
 vim.keymap.set("n", "x", '"_x', { desc = "Delete character without yanking" })
 
--- Increment and Decrement
+-- Increment (decrement stays on native <C-x>; <leader>- is Oil)
 vim.keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
-vim.keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 
 -- Move text up and down
-vim.keymap.set("n", "<A-j>", "<ESC>:m .+1<CR>==gi", { desc = "Move line down" })
-vim.keymap.set("n", "<A-k>", "<ESC>:m .-2<CR>==gi", { desc = "Move line up" })
-
--- No highlight
-vim.keymap.set("n", "<leader>nh", "<cmd>nohl<CR>", { desc = "Clear search highlights" })
+vim.keymap.set("n", "<A-j>", "<cmd>m .+1<CR>==", { desc = "Move line down" })
+vim.keymap.set("n", "<A-k>", "<cmd>m .-2<CR>==", { desc = "Move line up" })
 
 -- Window management
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
@@ -64,8 +54,8 @@ vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 
 -- Better Replace
-vim.keymap.set("n", "<leader>s", "*N", { desc = "Search word under cursor" })
-vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word under cursor" })
+vim.keymap.set("n", "<leader>sw", "*N", { desc = "Search word under cursor" })
+vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word under cursor" })
 vim.keymap.set("v", "<leader>r", [["hy:%s/<C-r>h/<C-r>h/gI<Left><Left><left>]], { desc = "Replace selected text" })
 vim.keymap.set("v", "<leader>s", [["hy:let @/=@h<CR>nN]], { desc = "Search selected text" })
 
@@ -83,11 +73,6 @@ vim.keymap.set("v", "<leader>p", '"_dP', { desc = "Paste without yanking" })
 vim.keymap.set("n", "-", "<cmd>Oil --float<CR>", { desc = "Open Oil in floating window" })
 vim.keymap.set("n", "<leader>-", "<cmd>Oil<CR>", { desc = "Open Oil file browser" })
 
--- Visual Block --
--- Move text up and down
-vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", { desc = "Move block down" })
-vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv", { desc = "Move block up" })
-
 -- Gretest remap ever
 vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without yanking" })
 
@@ -98,37 +83,24 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank line to system clipboar
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to black hole register" })
 
 vim.keymap.set("n", "Q", "<nop>", { desc = "Disable Ex mode" })
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "Open tmux sessionizer" })
 
--- In Lua
-vim.keymap.set(
-	"n",
-	"<leader>L",
-	'<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/luasnippets/"})<CR>',
-	{ desc = "Reload LuaSnip snippets" }
-)
+-- C-h/j/k/l are mapped by vim-tmux-navigator itself
 
--- Tmux Navigator
-vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>", { desc = "Tmux navigate left" })
-vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { desc = "Tmux navigate down" })
-vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", { desc = "Tmux navigate up" })
-vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", { desc = "Tmux navigate right" })
-
--- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
+-- Diagnostic keymaps ([d and ]d are Neovim defaults)
 vim.keymap.set("n", "<leader>of", vim.diagnostic.open_float, { desc = "Open diagnostic float" })
-vim.keymap.set("n", "<leader>h", vim.diagnostic.setloclist, { desc = "Open diagnostic list" })
+vim.keymap.set("n", "<leader>ol", vim.diagnostic.setloclist, { desc = "Open diagnostic list" })
+
+-- Drop Neovim 0.11's gr* LSP defaults so the custom gr (references) fires instantly
+for _, lhs in ipairs({ "grn", "grr", "gri", "grt" }) do
+	pcall(vim.keymap.del, "n", lhs)
+end
+pcall(vim.keymap.del, { "n", "x" }, "gra")
 
 -- LazyGit
-vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
-
--- Leap
-vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)', { desc = "Leap motion" })
-vim.keymap.set('n',             'S', '<Plug>(leap-from-window)', { desc = "Leap from window" })
+vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
 
 -- Claude Code
-vim.keymap.set('n', '<leader>cc', '<cmd>ClaudeCode<CR>', { desc = 'Toggle Claude Code' })
+vim.keymap.set("n", "<leader>cc", "<cmd>ClaudeCode<CR>", { desc = "Toggle Claude Code" })
 
 -- Terminal
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })

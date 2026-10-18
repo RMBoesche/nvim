@@ -89,11 +89,11 @@ return {
 					--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 				},
 				sources = {
+					{ name = "lazydev",  group_index = 0 },
 					{ name = "nvim_lsp", group_index = 1 },
 					{ name = "nvim_lua", group_index = 1 },
 					{ name = "path",     group_index = 1 },
 					{ name = "luasnip",  group_index = 1 },
-					{ name = "cmdline",  group_index = 5,  keyword_length = 3 },
 					{ name = "buffer",   group_index = 10, keyword_length = 4 },
 				},
 				formatting = {

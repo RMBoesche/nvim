@@ -2,6 +2,7 @@ return {
 	"lervag/vimtex",
 	ft = "tex",
 	config = function()
+		vim.g.vimtex_compiler_latexmk_engines = { _ = "-xelatex" }
 		vim.g.vimtex_view_method = "zathura"
 		vim.g.vimtex_view_general_viewer = "zathura"
 		vim.g.vimtex_view_forward_search_on_start = false
@@ -15,7 +16,7 @@ return {
 			show_numbers = 1,
 			split_pos = "leftabove",
 			split_width = 30,
-			tocdeth = 3,
+			tocdepth = 3,
 			indent_levels = 1,
 			todo_sorted = 1,
 		}
