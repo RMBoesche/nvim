@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# VimTeX viewer for WSL: run Windows SumatraPDF, converting WSL paths to Windows paths.
+# SUMATRA_EXE overrides the executable (used by tests).
+exe="${SUMATRA_EXE:-$(compgen -G '/mnt/c/Users/*/AppData/Local/SumatraPDF/SumatraPDF.exe' | head -n 1)}"
+[ -n "$exe" ] || { echo "sumatra-wsl: SumatraPDF.exe not found" >&2; exit 1; }
+
+args=()
+for a in "$@"; do
+  if [[ "$a" == /* && -e "$a" ]]; then
+    args+=("$(wslpath -w "$a")")
+  else
+    args+=("$a")
+  fi
+done
+
+# Detach so Neovim doesn't wait on the viewer window
+setsid "$exe" "${args[@]}" >/dev/null 2>&1 < /dev/null &

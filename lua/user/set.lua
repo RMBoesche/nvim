@@ -44,7 +44,11 @@ vim.opt.backspace = "indent,eol,start"
 vim.opt.updatetime = 250
 
 vim.opt.completeopt = "menu,menuone,noselect"
-vim.opt.conceallevel = 2
+-- Conceal markup (links, emphasis) in Markdown only; obsidian.nvim needs >= 1
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function() vim.opt_local.conceallevel = 2 end,
+})
 
 vim.filetype.add({ extension = { ngc = "perl", ssp = "spice" } })
 

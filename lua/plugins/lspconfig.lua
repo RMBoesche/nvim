@@ -109,6 +109,8 @@ return {
           "slang_server",
           "verible",
           "bashls",
+          "texlab",
+          "marksman",
           "clangd",
         },
         -- pyright is still installed by Mason; basedpyright replaces it
