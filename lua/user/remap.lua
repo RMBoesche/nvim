@@ -44,8 +44,8 @@ vim.keymap.set("n", "<leader>+", "<C-a>")
 vim.keymap.set("n", "<leader>-", "<C-x>")
 
 -- Move text up and down
-vim.keymap.set("n", "<A-j>", "<ESC>:m .+1<CR>==gi")
-vim.keymap.set("n", "<A-k>", "<ESC>:m .-2<CR>==gi")
+vim.keymap.set("n", "<A-j>", "<cmd>m .+1<CR>==")
+vim.keymap.set("n", "<A-k>", "<cmd>m .-2<CR>==")
 
 -- No highlight
 vim.keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
@@ -83,11 +83,6 @@ vim.keymap.set("v", "<leader>p", '"_dP')
 vim.keymap.set("n", "-", "<cmd>Oil --float<CR>")
 vim.keymap.set("n", "<leader>-", "<cmd>Oil<CR>")
 
--- Visual Block --
--- Move text up and down
-vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
-vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
-
 -- Gretest remap ever
 vim.keymap.set("x", "<leader>p", '"_dP')
 
@@ -98,14 +93,6 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-
--- In Lua
-vim.keymap.set(
-	"n",
-	"<leader>L",
-	'<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/luasnippets/"})<CR>'
-)
 
 -- Tmux Navigator
 vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
