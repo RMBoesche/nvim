@@ -4,7 +4,6 @@ return {
   config = function()
     require("lint").linters_by_ft = {
       lua = { "selene" },
-      python = { "ruff" },
       sh = { "shellcheck" },
       bash = { "shellcheck" },
     }

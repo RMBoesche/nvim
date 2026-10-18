@@ -1,5 +1,12 @@
 vim.g.mapleader = " "
 
+-- Perl::Tidy / Perl::Critic live in ~/perl5 (cpanm -l ~/perl5); expose them to perlnavigator and conform
+local perl5 = vim.fn.expand("~/perl5")
+if vim.uv.fs_stat(perl5) then
+  vim.env.PATH = perl5 .. "/bin:" .. vim.env.PATH
+  vim.env.PERL5LIB = perl5 .. "/lib/perl5" .. (vim.env.PERL5LIB and (":" .. vim.env.PERL5LIB) or "")
+end
+
 vim.opt.mouse = "a"
 vim.opt.termguicolors = true
 

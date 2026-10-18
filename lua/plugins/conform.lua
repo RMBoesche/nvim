@@ -4,12 +4,16 @@ return {
   config = function()
     require("conform").setup({
       format_on_save = {
-        timeout_ms = 500,
+        timeout_ms = 2000, -- perltidy/verible can be slow on large files
         lsp_format = "fallback",
       },
       formatters_by_ft = {
         lua = { "stylua" },
-        python = { "ruff_format" },
+        python = { "ruff_organize_imports", "ruff_format" },
+        perl = { "perltidy" },
+        tcl = { "tclfmt" },
+        verilog = { "verible" },
+        systemverilog = { "verible" },
         sh = { "shfmt" },
         bash = { "shfmt" },
         javascript = { "prettierd", "prettier", stop_after_first = true },

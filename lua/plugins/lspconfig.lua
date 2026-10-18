@@ -37,6 +37,12 @@ return {
           vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "LSP: [g]o to [i]mplementation" })
           vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "LSP: [r]e[n]ame symbol" })
           vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "LSP: [c]ode [a]ctions" })
+
+          -- Let basedpyright own hover in Python; ruff only lints/formats
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client and client.name == "ruff" then
+            client.server_capabilities.hoverProvider = false
+          end
         end,
       })
 
@@ -56,15 +62,50 @@ return {
         },
       })
 
+      -- Python: basedpyright for types/navigation, ruff for lint + import sorting
+      vim.lsp.config("basedpyright", {
+        settings = {
+          basedpyright = {
+            disableOrganizeImports = true, -- ruff does it
+            analysis = {
+              typeCheckingMode = "standard", -- same strictness as pyright
+              diagnosticMode = "openFilesOnly",
+              autoImportCompletions = true,
+            },
+          },
+        },
+      })
+
+      -- Perl: syntax check, perlcritic and perltidy (modules in ~/perl5, see set.lua)
+      vim.lsp.config("perlnavigator", {
+        settings = {
+          perlnavigator = {
+            perlcriticEnabled = true,
+            perltidyEnabled = true,
+            enableWarnings = true,
+          },
+        },
+      })
+
+      -- Verilog/SystemVerilog: slang-server (semantics) + verible (style lint, format).
+      -- Flat root_markers for the same 0.11.3 health check crash as lua_ls.
+      vim.lsp.config("slang_server", { root_markers = { ".slang", ".git" } })
+
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
-          "pyright",
+          "basedpyright",
+          "ruff",
           "r_language_server",
           "perlnavigator",
+          "tclsp",
+          "slang_server",
+          "verible",
           "clangd",
           "rust_analyzer",
         },
+        -- pyright is still installed by Mason; basedpyright replaces it
+        automatic_enable = { exclude = { "pyright" } },
       })
     end,
   },
