@@ -12,12 +12,12 @@ return {
         python = { "ruff_format" },
         sh = { "shfmt" },
         bash = { "shfmt" },
-        javascript = { { "prettierd", "prettier" } },
-        typescript = { { "prettierd", "prettier" } },
-        html = { { "prettierd", "prettier" } },
-        css = { { "prettierd", "prettier" } },
-        json = { { "prettierd", "prettier" } },
-        markdown = { { "prettierd", "prettier" } },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
+        typescript = { "prettierd", "prettier", stop_after_first = true },
+        html = { "prettierd", "prettier", stop_after_first = true },
+        css = { "prettierd", "prettier", stop_after_first = true },
+        json = { "prettierd", "prettier", stop_after_first = true },
+        markdown = { "prettierd", "prettier", stop_after_first = true },
         rust = { "rustfmt" },
         c = { "clang_format" },
         cpp = { "clang_format" },
@@ -25,7 +25,7 @@ return {
     })
 
     vim.keymap.set({ "n", "v" }, "<leader>fm", function()
-      require("conform").format({ async = true, lsp_fallback = true })
+      require("conform").format({ async = true, lsp_format = "fallback" })
     end, { desc = "Format file" })
   end,
 }

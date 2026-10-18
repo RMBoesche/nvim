@@ -26,19 +26,20 @@ vim.opt.pumheight = 10
 vim.opt.cmdheight = 0
 
 vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.signcolumn = "yes"
 
 vim.opt.showmode = false
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.backspace = "indent,eol,start"
-vim.opt.updatetime = 50
+vim.opt.updatetime = 250
 
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.conceallevel = 2
 
-vim.cmd("autocmd BufRead,BufNewFile *.ngc set filetype=perl")
-vim.cmd("autocmd BufRead,BufNewFile *.ssp set filetype=spice")
+vim.filetype.add({ extension = { ngc = "perl", ssp = "spice" } })
 
 vim.g.clipboard = {
   name = 'tmux',

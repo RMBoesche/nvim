@@ -18,12 +18,6 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- Toggle Relative Line Numbers
 vim.keymap.set("n", "<leader>nr", "<cmd>set relativenumber!<CR>")
 
--- Better window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
-
 -- Better half window scroll
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -39,16 +33,12 @@ vim.keymap.set("n", "<S-h>", "<cmd>bprevious<CR>")
 -- Delete do not go to register
 vim.keymap.set("n", "x", '"_x')
 
--- Increment and Decrement
+-- Increment (decrement stays on native <C-x>; <leader>- is Oil)
 vim.keymap.set("n", "<leader>+", "<C-a>")
-vim.keymap.set("n", "<leader>-", "<C-x>")
 
 -- Move text up and down
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<CR>==")
 vim.keymap.set("n", "<A-k>", "<cmd>m .-2<CR>==")
-
--- No highlight
-vim.keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
 
 -- Window management
 vim.keymap.set("n", "<leader>sv", "<C-w>v") -- split vertically
@@ -64,8 +54,8 @@ vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>") -- go to next tab
 vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>") -- go to previous tab
 
 -- Better Replace
-vim.keymap.set("n", "<leader>s", "*N")
-vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>sw", "*N")
+vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("v", "<leader>r", [["hy:%s/<C-r>h/<C-r>h/gI<Left><Left><left>]])
 vim.keymap.set("v", "<leader>s", [["hy:let @/=@h<CR>nN]])
 
@@ -94,17 +84,17 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
 
--- Tmux Navigator
-vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
-vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
-vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
-vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
+-- C-h/j/k/l are mapped by vim-tmux-navigator itself
 
--- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+-- Diagnostic keymaps ([d and ]d are Neovim defaults)
 vim.keymap.set("n", "<leader>of", vim.diagnostic.open_float)
-vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist)
+vim.keymap.set("n", "<leader>ol", vim.diagnostic.setloclist)
 
--- LazyGit 
-vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>")
+-- Drop Neovim 0.11's gr* LSP defaults so the custom gr (references) fires instantly
+for _, lhs in ipairs({ "grn", "grr", "gri", "grt" }) do
+	pcall(vim.keymap.del, "n", lhs)
+end
+pcall(vim.keymap.del, { "n", "x" }, "gra")
+
+-- LazyGit
+vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<CR>")

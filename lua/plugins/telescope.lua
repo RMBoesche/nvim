@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.5",
+		tag = "v0.2.2",
 		dependencies = { "nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-fzf-native.nvim" },
 		cmd = "Telescope",
@@ -40,9 +40,6 @@ return {
 			})
 			-- Enable telescope fzf native, if installed
 			pcall(require("telescope").load_extension, "fzf")
-
-			-- Enable harpoon telescope extension
-			require("telescope").load_extension('harpoon')
 
 			-- Telescope
 			vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files" })
